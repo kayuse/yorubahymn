@@ -1,0 +1,7 @@
+{
+  "name": "yorhym",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

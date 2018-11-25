@@ -1,0 +1,42 @@
+page-home {
+    ion-item-divider{
+        border-bottom:1px solid #2562E8;
+    }
+    ion-item-divider  span{
+        color:#222;
+        font-size:15px;
+        padding-left:15px;
+    }
+    .collections-container-img{
+        position: relative;
+    }
+    div.icon{
+      border-radius : 15px; 
+      width:10px;
+      height: 10px;
+      background-color: #222;
+    }
+    div.icon.danger{
+        background-color: #f53d3d;
+    }
+    div.icon.secondary{
+        background-color: #B2A40B;
+    }
+    div.icon.primary{
+        background-color: #2562E8;
+    }
+    div.icon.primary-light{
+        background-color:#319BFF;
+    }
+    .myOverlay{
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        z-index: 99;
+        bottom: 0px;
+        opacity: 0.5;
+        background: #000;
+        color: #fff;
+    
+    }
+}
