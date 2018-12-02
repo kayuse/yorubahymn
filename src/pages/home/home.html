@@ -1,72 +1,64 @@
 <ion-header>
-  <ion-navbar color="primary" *ngIf = false header-margin=false>
-    <ion-buttons start>
+  <ion-navbar color="primary"  header-margin=false>
+    <ion-buttons start left>
       <button ion-button icon-only>
-        <ion-icon name="american-football"></ion-icon>
+        <img style = "width:30px;" src="assets/imgs/ecwalogo.png" alt="Hymn Collections"/>
       </button>
     </ion-buttons>
     <ion-title>
-      Collections
+     Hymn Collections
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content id="page2">
-  <div id="collections-container-img" class=".home-container" >
-    <ion-img width="100%" height="230" src="assets/imgs/background.jpg"  cache=true alt="Hymn Collections"></ion-img>
+<ion-content id="page2" style="margin-top:0px;">
+  <div id="collections-container-img" class="home-container" style="height:225px;">
+    <!--<ion-img width="100%" height="230" src="assets/imgs/background.jpg"  cache=true alt="Hymn Collections"></ion-img>
+    -->
+    <div id="container-header">Hymns for the week</div>
+    <div id="container-hymn-title">Aspiration</div>
+    <div id="container-button"><button ion-button round medium outline color="light" style="color:#f4f4f4;" (click) = 'goToHome()'>
+      <ion-icon ios="ios-musical-note" md="md-musical-note"></ion-icon>&nbsp; Listen</button></div>
   </div>
   <ion-list id="collections-list5">
-      <ion-list-header style="border-top:none;">
+      <ion-list-header style="border-top:none; font-size: 1.2em">
           HYMN COLLECTIONS
         </ion-list-header>
     <ion-item-divider id="collections-list-item18" detail-push>
         <div class="icon secondary" item-left color="danger"></div>
-      <span color="primary">Aspiration</span>
-      <ion-icon name="ios-arrow-forward" color="dark" item-right></ion-icon>
+      <span color="primary">
+        <p class="collection-title">Aspiration</p>
+          <p color="primary"  class="collection-range">272-123</p>
+      </span>
+     
+      <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
+    </ion-item-divider>
+    <ion-item-divider id="collections-list-item18" detail-push>
+      <div class="icon primary" item-left color="danger"></div>
+      <span color="primary">
+         <p class="collection-title">Love</p>
+          <p color="primary"  class="collection-range">272-123</p>
+      </span>
+     
+      <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
     </ion-item-divider>
     <ion-item-divider id="collections-list-item18" detail-push>
         <div class="icon primary" item-left color="danger"></div>
-      <span color="primary">Love</span>
-      <ion-icon name="ios-arrow-forward" color="dark" item-right></ion-icon>
-    </ion-item-divider>
-    <ion-item-divider id="collections-list-item18" detail-push>
-      <div class="icon" item-left color="danger"></div>
-      <span color="primary">Surrender and Life</span>
-      <ion-icon name="ios-arrow-forward-outline" color="dark" item-right></ion-icon>
-    </ion-item-divider>
-    <ion-item-divider id="collections-list-item18">
-      <div class="icon danger" item-left color="danger"></div>
-      <span color="primary">Death</span>
-      <ion-icon name="ios-arrow-forward" color="dark" item-right></ion-icon>
-    </ion-item-divider>
-    <ion-item-divider id="collections-list-item18" detail-push>
-      <div class="icon primary-light" item-left color="danger"></div>
-      <span color="primary">Total Freedom</span>
-      <ion-icon name="ios-arrow-forward-outline" color="dark" item-right></ion-icon>
-    </ion-item-divider>
-    <ion-item-divider id="collections-list-item18" detail-push>
-        <div class="icon secondary" item-left color="danger"></div>
-      <span color="primary">Aspiration</span>
-      <ion-icon name="ios-arrow-forward" color="dark" item-right></ion-icon>
-    </ion-item-divider>
-    <ion-item-divider id="collections-list-item18" detail-push>
-        <div class="icon primary" item-left color="danger"></div>
-      <span color="primary">Love</span>
-      <ion-icon name="ios-arrow-forward" color="dark" item-right></ion-icon>
-    </ion-item-divider>
-    <ion-item-divider id="collections-list-item18" detail-push>
-      <div class="icon" item-left color="danger"></div>
-      <span color="primary">Surrender and Life</span>
-      <ion-icon name="ios-arrow-forward-outline" color="dark" item-right></ion-icon>
-    </ion-item-divider>
-    <ion-item-divider id="collections-list-item18">
-      <div class="icon danger" item-left color="danger"></div>
-      <span color="primary">Death</span>
-      <ion-icon name="ios-arrow-forward" color="dark" item-right></ion-icon>
-    </ion-item-divider>
-    <ion-item-divider id="collections-list-item18" detail-push>
-      <div class="icon primary-light" item-left color="danger"></div>
-      <span color="primary">Total Freedom</span>
-      <ion-icon name="ios-arrow-forward-outline" color="dark" item-right></ion-icon>
-    </ion-item-divider>
+        <span color="primary">
+           <p class="collection-title">Love</p>
+            <p color="primary"  class="collection-range">272-123</p>
+        </span>
+       
+        <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
+      </ion-item-divider>
+      <ion-item-divider id="collections-list-item18" detail-push>
+          <div class="icon primary" item-left color="danger"></div>
+          <span color="primary">
+             <p class="collection-title">Love</p>
+              <p color="primary"  class="collection-range">272-123</p>
+          </span>
+         
+          <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
+        </ion-item-divider>
+    
   </ion-list>
 </ion-content>

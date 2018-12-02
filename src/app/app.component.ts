@@ -11,7 +11,7 @@ import { IntroPage } from '../pages/intro/intro';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = IntroPage;
+  rootPage:any = null;
   loader:any
 
   constructor(platform: Platform, public loadingCtrl: LoadingController, public storage: Storage,statusBar: StatusBar, splashScreen: SplashScreen) {
@@ -28,7 +28,7 @@ export class MyApp {
           this.rootPage = TabsPage;
         } else {
           this.rootPage = IntroPage;
-          this.storage.set('introShown', true);
+          //this.storage.set('introShown', true);
         }
  
         //this.loader.dismiss();

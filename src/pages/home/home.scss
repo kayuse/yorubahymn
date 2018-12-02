@@ -1,19 +1,39 @@
 page-home {
+    #container-header{
+        text-align: center;
+        padding-top:19px;
+        font-size: 2em;
+       
+    }
+    #container-hymn-title{
+        text-align: center;
+        margin-top:19px;
+        font-size: 2em;
+        font-weight: bold;
+    }
+    #container-button{
+        text-align: center;
+        margin-top:25px;
+    }
     ion-item-divider{
         border-bottom:1px solid #2562E8;
     }
-    ion-item-divider  span{
+    .collection-title{
         color:#222;
-        font-size:15px;
+        font-size:1.3em;
         padding-left:15px;
+    }
+    .home-container{
+        color:#f4f4f4;
+        background:#3a7bd5;
     }
     .collections-container-img{
         position: relative;
     }
     div.icon{
       border-radius : 15px; 
-      width:10px;
-      height: 10px;
+      width:15px;
+      height: 15px;
       background-color: #222;
     }
     div.icon.danger{
@@ -25,8 +45,18 @@ page-home {
     div.icon.primary{
         background-color: #2562E8;
     }
+    .collection-range{
+        font-size: 0.9em;
+        color: #666;
+        padding-left: 15px;
+    }
+    
     div.icon.primary-light{
         background-color:#319BFF;
+    }
+    .ion-icon-push{
+        font-size:1.8em;
+        padding-right:15px;
     }
     .myOverlay{
         width: 100%;

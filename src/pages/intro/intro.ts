@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { Slides } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
+
 
 /**
  * Generated class for the IntroPage page.
@@ -17,13 +21,27 @@ import { Slides } from 'ionic-angular';
 })
 export class IntroPage {
   @ViewChild('slides') slides: Slides;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  loader: any;
+
+  constructor(public navCtrl: NavController, public loadingCtrl : LoadingController, public storage : Storage ,public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IntroPage');
   }
   goToHome(){
-    //this.navCtrl.setRoot('Tabs');
+    this.presentLoading();
+    this.storage.set('appIntroShown',true);
+    this.navCtrl.push(TabsPage);
+    this.loader.dismiss();
+  }
+  presentLoading() {
+ 
+    this.loader = this.loadingCtrl.create({
+      content: "Preparing Your Hymns..."
+    });
+ 
+    this.loader.present();
+ 
   }
 }
