@@ -2,13 +2,13 @@ page-home {
     #container-header{
         text-align: center;
         padding-top:19px;
-        font-size: 2em;
+        font-size: 18px;
        
     }
     #container-hymn-title{
         text-align: center;
         margin-top:19px;
-        font-size: 2em;
+        font-size: 17px;
         font-weight: bold;
     }
     #container-button{
@@ -20,12 +20,22 @@ page-home {
     }
     .collection-title{
         color:#222;
-        font-size:1.3em;
+        font-size:17px;
+        letter-spacing: 1px;
         padding-left:15px;
+        font-weight: 10;
+
     }
     .home-container{
         color:#f4f4f4;
-        background:#3a7bd5;
+        background-image: url("../assets/imgs/background.jpg");
+        overflow: hidden;
+    }
+    #overlay-div{
+        background: rgba(39,62,84,0.82);
+        overflow: hidden;
+        height: 100%;
+        z-index: 2;
     }
     .collections-container-img{
         position: relative;
@@ -55,7 +65,7 @@ page-home {
         background-color:#319BFF;
     }
     .ion-icon-push{
-        font-size:1.8em;
+        font-size:1.5em;
         padding-right:15px;
     }
     .myOverlay{

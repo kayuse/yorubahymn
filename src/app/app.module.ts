@@ -4,11 +4,13 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import {IonicStorageModule} from '@ionic/storage';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
+import { HymnPage } from '../pages/hymn/hymn';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { IntroPage } from '../pages/intro/intro';
+import {CollectionHymnPage} from '../pages/collection-hymn/collection-hymn';
+import {HymnDetailPage} from '../pages/hymn-detail/hymn-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,11 +18,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    HymnPage, 
     ContactPage,
     HomePage,
     IntroPage,
-    TabsPage
+    TabsPage,
+    CollectionHymnPage,
+    HymnDetailPage
   ],
   imports: [
     BrowserModule,
@@ -30,11 +34,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    HymnPage,
     ContactPage,
     HomePage,
     IntroPage,
-    TabsPage
+    TabsPage,
+    CollectionHymnPage,
+    HymnDetailPage
   ],
   providers: [
     StatusBar,
