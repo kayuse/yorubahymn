@@ -22,4 +22,8 @@ export class CollectionHymnPage {
     console.log('ionViewDidLoad CollectionHymnPage');
   }
 
+  loadAkopos(){
+    
+  }
+
 }

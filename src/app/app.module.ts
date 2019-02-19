@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import {IonicStorageModule} from '@ionic/storage';
+
 import { MyApp } from './app.component';
 
 import { HymnPage } from '../pages/hymn/hymn';
@@ -14,6 +15,15 @@ import {HymnDetailPage} from '../pages/hymn-detail/hymn-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+//components
+import { HttpClientModule } from '@angular/common/http';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite/';
+import { File } from '@ionic-native/file';
+
+//providers
+import {HymnProvider} from '../providers/hymn/hymn';
+
 
 @NgModule({
   declarations: [
@@ -28,8 +38,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +56,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    HymnProvider,
+    { provide: ErrorHandler, useClass: IonicErrorHandler},
+    SQLite,
+    File
   ]
 })
 export class AppModule { }

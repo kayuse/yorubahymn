@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Tabs } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Slides } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { HttpClient } from '@angular/common/http';
+import { HymnProvider } from '../../providers/hymn/hymn';
 
 
 /**
@@ -23,25 +25,40 @@ export class IntroPage {
   @ViewChild('slides') slides: Slides;
   loader: any;
 
-  constructor(public navCtrl: NavController, public loadingCtrl : LoadingController, public storage : Storage ,public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public loadingCtrl: LoadingController,
+    public storage: Storage, public navParams: NavParams,
+    public hymnService: HymnProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IntroPage');
   }
-  goToHome(){
+  goToHome() {
     this.presentLoading();
-    this.storage.set('appIntroShown',true);
-    this.navCtrl.push(TabsPage);
-    this.loader.dismiss();
+    this.loadHymns();
+
   }
   presentLoading() {
- 
+
     this.loader = this.loadingCtrl.create({
       content: "Preparing Your Hymns..."
     });
- 
+
     this.loader.present();
- 
+
+  }
+
+  loadHymns() {
+    let response = this.hymnService.loadHymns();
+    response.then(data => {
+      
+      this.loader.dismiss();
+      this.navCtrl.push(TabsPage);
+
+    }).catch(error => {
+
+    })
+
   }
 }

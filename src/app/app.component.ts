@@ -22,7 +22,7 @@ export class MyApp {
      // statusBar.styleDefault();
      // splashScreen.hide();
 
-      this.storage.get('appIntroShown').then((result) => {
+      this.storage.get('appIntShown').then((result) => {
         //console.log(result);
         if(result){
           this.rootPage = TabsPage;
