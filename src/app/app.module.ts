@@ -39,7 +39,9 @@ import {HymnProvider} from '../providers/hymn/hymn';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      tabsHideOnSubPages: true,
+    }),
     IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],

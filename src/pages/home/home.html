@@ -1,180 +1,65 @@
 <ion-header>
-  <ion-navbar color="primary"  header-margin=false>
-    <ion-buttons start left>
-      <button ion-button icon-only>
-        <img style = "width:30px;" src="assets/imgs/ecwalogo.png" alt="Hymn Collections"/>
-      </button>
-    </ion-buttons>
-    <ion-title>
-        AKOPO
-    </ion-title>
-    <ion-buttons start right>
-        <button ion-button icon-only>
-          <img style = "width:30px;" src="assets/imgs/umcalogo.png" alt="Hymn Collections"/>
-        </button>
-      </ion-buttons>
+  <ion-navbar color="primary" header-margin=false>
+    <ion-searchbar placeholder="Search Hymns, Collection"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 <ion-content id="page2" style="margin-top:0px;">
-  <div id="collections-container-img" class="home-container" style="height:205px;">
-    <div id="overlay-div">
-    <!--<ion-img width="100%" height="230" src="assets/imgs/background.jpg"  cache=true alt="Hymn Collections"></ion-img>
-    -->
-    <div id="container-header">AKOPO fun ose yii.</div>
-    <div id="container-hymn-title">Ojo Ibi Krsti</div>
-    <div id="container-button"><button ion-button round medium outline color="light" style="color:#f4f4f4;" (click) = 'goToHome()'>
-      <ion-icon ios="ios-musical-note" md="md-musical-note"></ion-icon>&nbsp; Eka</button></div>
-  </div></div>
+    <ion-slides pager style="height:250px; margin-top:0px;" class="home-slider">
+        <ion-slide>
+           <!-- <img style = "width:80px;" src="assets/imgs/ecwalogo.png" alt="Hymn Collections"/> <p id="intro-and">&</p>  -->
+            <img style = "width:50px;" src="assets/imgs/ecwalogo.png" alt="Hymn Collections"/>
+            <h3>Fi ireti si Ọlọrun, nitori emi o ma yìn i logo, Olugbala mi, ati Ọlọrun mi</h3>
+            <div class="spacer" style = "height:30px;"></div>
+        </ion-slide>
+        <ion-slide>
+            <!-- <img style = "width:80px;" src="assets/imgs/ecwalogo.png" alt="Hymn Collections"/> <p id="intro-and">&</p>  -->
+             <img style = "width:50px;" src="assets/imgs/umcalogo.png" alt="Hymn Collections"/>
+             <h3>Fi ireti si Ọlọrun, nitori emi o ma yìn i logo, Olugbala mi, ati Ọlọrun mi</h3>
+             <div class="spacer" style = "height:30px;"></div>
+         </ion-slide>
+      </ion-slides>
+  <div id="top-collections">
+    <!--<ion-avatar item-start>
+      <div class="top-collections-icon-border" item-left>
+          <div style="height:19px;"></div>
+          <i class="fab fa-first-order-alt top-collections-icon"></i></div>
+    </ion-avatar>
+  -->
+    <div id="hymn-badge-ctn">
+      <ion-badge color="primary" class="hymn-badge">Trust and Obey</ion-badge>
+      <ion-badge color="secondary" class="hymn-badge">Jesus is coming again</ion-badge>
+      <ion-badge color="tertiary" class="hymn-badge">A living witness</ion-badge>
+      <ion-badge color="success" class="hymn-badge">Without God we are nothing</ion-badge>
+    </div>
+  </div>
   <ion-list id="collections-list5">
-      <ion-list-header style="border-top:none; font-size: 1.2em">
-          HYMN COLLECTIONS
-        </ion-list-header>
-    <ion-item-divider id="collections-list-item18" detail-push>
-        <div class="icon secondary" item-left color="danger"></div>
+    <ion-list-header style="font-size: 1.2em">
+      HYMN COLLECTIONS 
+    </ion-list-header>
+
+    <ion-item id="collections-list-item18" no-lines>
+      <ion-avatar item-start>
+         <span class="collection-number">1</span> 
+         <img src="assets/imgs/1.jpg" >
+      </ion-avatar>
       <span color="primary">
-        <p class="collection-title">Aspiration</p>
-          <p color="primary"  class="collection-range">272-123</p>
+        <p class="collection-title">Nwon si foribale fun U</p>
+        <p color="primary" class="collection-range">272-123</p>
       </span>
-     
-      <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-    </ion-item-divider>
-    <ion-item id="collections-list-item18" detail-push>
-      <ion-thumbnail item-start>
-        <img src="img/avatar-finn.png">
-      </ion-thumbnail>
-      <span color="primary">
-         <p class="collection-title">Love</p>
-          <p color="primary"  class="collection-range">272-123</p>
-      </span>
-     
-      <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
+      <i class="fas fa-chevron-right" item-right></i>
     </ion-item>
-    <ion-item-divider id="collections-list-item18" detail-push>
-        <div class="icon primary" item-left color="danger"></div>
+  
+    <ion-item id="collections-list-item18" no-lines>
+        <ion-avatar item-start>
+           <span class="collection-number">2</span> 
+           <img src="assets/imgs/2.jpg" >
+        </ion-avatar>
         <span color="primary">
-           <p class="collection-title">Love</p>
-            <p color="primary"  class="collection-range">272-123</p>
+          <p class="collection-title">Nwon si foribale fun U</p>
+          <p color="primary" class="collection-range">272-123</p>
         </span>
-       
-        <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-      </ion-item-divider>
-      <ion-item-divider id="collections-list-item18" detail-push>
-          <div class="icon primary" item-left color="danger"></div>
-          <span color="primary">
-             <p class="collection-title">Love</p>
-              <p color="primary"  class="collection-range">272-123</p>
-          </span>
-         
-          <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-        </ion-item-divider>
-        <ion-item-divider id="collections-list-item18" detail-push>
-          <div class="icon secondary" item-left color="danger"></div>
-        <span color="primary">
-          <p class="collection-title">Aspiration</p>
-            <p color="primary"  class="collection-range">272-123</p>
-        </span>
-       
-        <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-      </ion-item-divider>
-      <ion-item-divider id="collections-list-item18" detail-push>
-        <div class="icon primary" item-left color="danger"></div>
-        <span color="primary">
-           <p class="collection-title">Love</p>
-            <p color="primary"  class="collection-range">272-123</p>
-        </span>
-       
-        <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-      </ion-item-divider>
-      <ion-item-divider id="collections-list-item18" detail-push>
-          <div class="icon primary" item-left color="danger"></div>
-          <span color="primary">
-             <p class="collection-title">Love</p>
-              <p color="primary"  class="collection-range">272-123</p>
-          </span>
-         
-          <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-        </ion-item-divider>
-        <ion-item-divider id="collections-list-item18" detail-push>
-            <div class="icon primary" item-left color="danger"></div>
-            <span color="primary">
-               <p class="collection-title">Love</p>
-                <p color="primary"  class="collection-range">272-123</p>
-            </span>
-           
-            <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-          </ion-item-divider>
-          <ion-item-divider id="collections-list-item18" detail-push>
-            <div class="icon secondary" item-left color="danger"></div>
-          <span color="primary">
-            <p class="collection-title">Aspiration</p>
-              <p color="primary"  class="collection-range">272-123</p>
-          </span>
-         
-          <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-        </ion-item-divider>
-        <ion-item-divider id="collections-list-item18" detail-push>
-          <div class="icon primary" item-left color="danger"></div>
-          <span color="primary">
-             <p class="collection-title">Love</p>
-              <p color="primary"  class="collection-range">272-123</p>
-          </span>
-         
-          <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-        </ion-item-divider>
-        <ion-item-divider id="collections-list-item18" detail-push>
-            <div class="icon primary" item-left color="danger"></div>
-            <span color="primary">
-               <p class="collection-title">Love</p>
-                <p color="primary"  class="collection-range">272-123</p>
-            </span>
-           
-            <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-          </ion-item-divider>
-          <ion-item-divider id="collections-list-item18" detail-push>
-              <div class="icon primary" item-left color="danger"></div>
-              <span color="primary">
-                 <p class="collection-title">Love</p>
-                  <p color="primary"  class="collection-range">272-123</p>
-              </span>
-             
-              <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-            </ion-item-divider>
-            <ion-item-divider id="collections-list-item18" detail-push>
-              <div class="icon secondary" item-left color="danger"></div>
-            <span color="primary">
-              <p class="collection-title">Aspiration</p>
-                <p color="primary"  class="collection-range">272-123</p>
-            </span>
-           
-            <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-          </ion-item-divider>
-          <ion-item-divider id="collections-list-item18" detail-push>
-            <div class="icon primary" item-left color="danger"></div>
-            <span color="primary">
-               <p class="collection-title">Love</p>
-                <p color="primary"  class="collection-range">272-123</p>
-            </span>
-           
-            <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-          </ion-item-divider>
-          <ion-item-divider id="collections-list-item18" detail-push>
-              <div class="icon primary" item-left color="danger"></div>
-              <span color="primary">
-                 <p class="collection-title">Love</p>
-                  <p color="primary"  class="collection-range">272-123</p>
-              </span>
-             
-              <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-            </ion-item-divider>
-            <ion-item-divider id="collections-list-item18" detail-push>
-                <div class="icon primary" item-left color="danger"></div>
-                <span color="primary">
-                   <p class="collection-title">Love</p>
-                    <p color="primary"  class="collection-range">272-123</p>
-                </span>
-               
-                <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-              </ion-item-divider>
-                
+        <i class="fas fa-chevron-right" item-right></i>
+      </ion-item>
+      <hr/>
   </ion-list>
 </ion-content>

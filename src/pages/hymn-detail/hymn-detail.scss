@@ -1,4 +1,31 @@
 page-hymn-detail {
+    ion-header{
+        background-color: #002e5b;
+        color:#f4f4ff;
+    }
+    #header-details{
+        background-color: #002e5b;
+        color: #f4f4ff;
+    }
+    .extra{
+        font-size: 1em;
+        text-align: center;
+    }
+    .toolbar-title{
+        text-overflow: unset !important;
+        overflow:visible;
+        margin-left:-70px;
+    }
+    #image-ctn{
+        float: left;
+        margin-left:20px;
+    }
+    #extra-ctn{
+        text-align: center;
+        width:70%;
+        margin-left:25%;
+        word-wrap: break-word;
+    }
 
     .title.title-md {
         position: absolute;
@@ -11,7 +38,8 @@ page-hymn-detail {
 
     }
     .hymn-title{
-        margin-bottom: 30px;
+        margin-bottom: 10px;
+        text-align: center;
     }
     .title{
         margin-bottom: 9px;
@@ -22,6 +50,7 @@ page-hymn-detail {
     .verse-ctn{
         margin-top:4px;
         margin-bottom: 4px;
+        text-align: center;
     }
     .chorus-ctn{
         margin-top:10px;

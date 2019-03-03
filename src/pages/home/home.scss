@@ -15,17 +15,52 @@ page-home {
         text-align: center;
         margin-top:25px;
     }
-    ion-item-divider{
-        border-bottom:1px solid #2562E8;
-    }
     .collection-title{
         color:#222;
-        font-size:17px;
-        letter-spacing: 1px;
+        font-size: 1.1em;
         padding-left:15px;
         font-weight: 10;
 
     }
+    #hymn-badge-ctn{
+       padding-bottom:15px;
+       white-space: nowrap;
+       overflow-x: auto;
+       overflow-y: hidden;
+    }
+    .hymn-badge{
+        padding:9px;
+        font-size:1em;
+        border-radius:50px;
+    }
+
+    #top-collections{
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    .top-collections-icon-border{
+        border-radius : 50px; 
+        width:50px;
+        height: 50px;
+        background-color: #3a7bd5;
+        border: 2px solid 	#ffffff;
+    
+        font-size: 0.9em;
+        font-weight: 500;
+       
+        color:#f4f4f4 !important;
+      }
+      .top-collections-icon{
+          font-size:25px;
+          vertical-align: middle;
+          margin-left: -5px;
+          margin-top: -8px;
+      }
+      .home-slider{
+        color:#f4f4f4;
+        background-image: url("../assets/imgs/background.jpg");
+        overflow: hidden;
+      }
     .home-container{
         color:#f4f4f4;
         background-image: url("../assets/imgs/background.jpg");
@@ -40,24 +75,17 @@ page-home {
     .collections-container-img{
         position: relative;
     }
-    div.icon{
-      border-radius : 15px; 
-      width:15px;
-      height: 15px;
-      background-color: #222;
-    }
-    div.icon.danger{
-        background-color: #f53d3d;
-    }
-    div.icon.secondary{
-        background-color: #B2A40B;
-    }
-    div.icon.primary{
-        background-color: #2562E8;
+    .collection-number{
+        vertical-align:middle; 
+        float:left;
+        margin-top:10px;
+        padding-right:9px; 
+        font-size:1em;
+        color:#616161
     }
     .collection-range{
         font-size: 0.9em;
-        color: #666;
+        color: #9e9e9e;
         padding-left: 15px;
     }
     

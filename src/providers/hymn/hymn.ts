@@ -23,7 +23,7 @@ export class HymnProvider {
                 status: 0,
                 message: ''
             }
-            
+
             let dbResult = this.createDB();
             dbResult.then(data => {
                 let akopoRequest = this.file.readAsText(this.file.applicationDirectory + "www/assets/db", "akopo.json").then(response => {
@@ -43,6 +43,17 @@ export class HymnProvider {
     }
     createAkopoList(data) {
         // this.getDB();
+    }
+    getAkopos(): Promise<any> {
+        let data =  this.getDB().then((db: SQLiteObject) => {
+                db.executeSql('SELECT * from akopos',[]).then(data => {
+                    console.log(data);
+                    return data;
+                }).catch(error => {
+                    return error;
+                })
+        })
+        return data;
     }
 
     createDB(): Promise<any> {

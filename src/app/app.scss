@@ -14,11 +14,36 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+@import "../assets/scss/fontawesome.scss";
+@import "../assets/scss/solid.scss";
+@import "../assets/scss/brands.scss";
 @font-face{
-    font-family: montserrat;
-    src: url('../assets/fonts/montserrat.woff2') format('woff2');
+    font-family: 'Lato', sans-serif;
+    src: url('../assets/fonts/lato/Lato-Regular.ttf') format('ttf');
+    font-weight: 200;
+    font-size: 1.4em;
+}
+
+/** {
+    font-family: 'Lato', sans-serif !important;
+}*/
+
+.user {
+    @extend %fa-icon;
+    @extend .fas;
+    &:before{
+        content: fa-content($fa-var-user);
     }
-     
-    *{
-    font-family: Barrio;
+}
+
+.twitter {
+    @extend %fa-icon;
+    @extend .fab;
+    &:before{
+        content: fa-content($fa-var-twitter);
     }
+}
+
+.tab-button-text {
+   /* font-size: 15px !important;*/
+  }
