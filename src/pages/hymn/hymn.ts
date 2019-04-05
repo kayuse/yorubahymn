@@ -1,49 +1,71 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HymnDetailPage } from '../hymn-detail/hymn-detail';
+import { HymnProvider } from '../../providers/hymn/hymn';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-hymn',
   templateUrl: 'hymn.html'
 })
 export class HymnPage {
-  data : object[] = [
-    {
-      "title":"E fi iyin fun Oluwa",
-      "reference":"H. C. 564",
-      "number" : "7"
-    },
-    {
-      "title":"Woo. iwo Ii ewa",
-      "reference":"G. H. 95",
-      "number" : "8"
-    },
-    {
-      "title":"E fi lyin fun OJuwa",
-      "reference":"S.S. & S. 208",
-      "number" : "9"
-    },
-    {
-      "title":"Awa feran Re nitori On ii o ko feran Wa",
-      "reference":"H. of P. 430",
-      "number" : "10"
-    },
-    {
-      "title":"E fi iyin fun Oluwa",
-      "reference":"H. C. 564",
-      "number" : "98"
-    },{
-      "title":"E fi iyin fun Oluwa",
-      "reference":"H. C. 564",
-      "number" : "78"
+  public hymns: Array<any> = [];
+  public page: number = 0;
+  public availableHeaders = {};
+  public headerShiftIndex: Array<number> = [];
+  public currentHeader: string = "";
+  constructor(public navCtrl: NavController,
+    public hymnService: HymnProvider, public storage: Storage) {
+    this.loadHymns(null);
+    this.setTotalHymns();
+  }
+
+  loadHymns(infiniteScroll) {
+    console.log('this page is', this.page);
+    this.hymnService.getHymns(this.page).then(result => {
+      this.page++;
+      let rows = result.rows;
+      //this.headerShiftIndex = [];
+      for (let i = 0; i < rows.length; i++) {
+        let row = rows.item(i);
+        this.hymns.push(rows.item(i));
+
+      }
+      if (infiniteScroll != null) {
+        console.log('called')
+        infiniteScroll.complete();
+      }
+
+    })
+  }
+  editTitle(title: string) {
+    if (title.length >= 30) {
+      return title.substring(0, 29) + "....."
     }
-  ];
-  constructor(public navCtrl: NavController) {
+    return title
+  }
+  loadNext(infiniteScroll) {
+    this.storage.get('totalHymns').then(result => {
+      if (this.page * this.hymnService.hymnPageSize >= parseInt(result)) {
+        infiniteScroll.complete();
+      } else {
+        this.loadHymns(infiniteScroll);
+      }
+    })
 
   }
 
-  openHymnDetail(){
-    this.navCtrl.push(HymnDetailPage);
+  setTotalHymns() {
+    this.hymnService.getTotalHymn().then(result => {
+      let count = result.rows.item(0);
+      this.storage.set('totalHymns', count.c);
+    })
+  }
+
+  openHymnDetail(hymn) {
+    this.navCtrl.push(HymnDetailPage, {
+      hymn: hymn
+    });
   }
 
 }

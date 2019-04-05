@@ -35,8 +35,8 @@ export class IntroPage {
     console.log('ionViewDidLoad IntroPage');
   }
   goToHome() {
-    //this.presentLoading();
-  //  this.loadHymns();
+    this.presentLoading();
+    this.loadHymns();
     //this.loader.dismiss();
   }
   presentLoading() {
@@ -54,15 +54,12 @@ export class IntroPage {
     response.then(data => {
       
       this.loader.dismiss();
-      this.storage.set('appIntShown', true)
+      this.storage.set('appInitShown', true)
       this.navCtrl.push(TabsPage);
 
     }).catch(error => {
 
     })
-    this.loader.dismiss();
-    this.storage.set('appInitShown', true)
-    this.navCtrl.push(TabsPage);
 
   }
 }

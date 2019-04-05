@@ -37,29 +37,17 @@
       HYMN COLLECTIONS 
     </ion-list-header>
 
-    <ion-item id="collections-list-item18" no-lines>
+    <ion-item id="collections-list-item18" no-lines *ngFor = "let akopo of akopos; let i = index" [attr.data-index]="i">
       <ion-avatar item-start>
-         <span class="collection-number">1</span> 
-         <img src="assets/imgs/1.jpg" >
+         <span class="collection-number"></span> 
+         <img src="{{getImageUrl(i)}}" >
       </ion-avatar>
       <span color="primary">
-        <p class="collection-title">Nwon si foribale fun U</p>
-        <p color="primary" class="collection-range">272-123</p>
+        <p class="collection-title" >{{akopo.title}}</p>
+        <p color="primary" class="collection-range">{{akopo.range}}</p>
       </span>
       <i class="fas fa-chevron-right" item-right></i>
     </ion-item>
-  
-    <ion-item id="collections-list-item18" no-lines>
-        <ion-avatar item-start>
-           <span class="collection-number">2</span> 
-           <img src="assets/imgs/2.jpg" >
-        </ion-avatar>
-        <span color="primary">
-          <p class="collection-title">Nwon si foribale fun U</p>
-          <p color="primary" class="collection-range">272-123</p>
-        </span>
-        <i class="fas fa-chevron-right" item-right></i>
-      </ion-item>
       <hr/>
   </ion-list>
 </ion-content>

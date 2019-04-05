@@ -1,3 +1,21 @@
 page-collection-hymn {
-
+    ion-grid {
+        padding:15px;
+    }
+    .content{
+        background-color: #f0f5ff;
+        border: 1px solid #e6e9ee;
+        border-radius: 2px;
+        padding: 5px;
+        font-size: 30px;
+        text-align: center;
+        color:#002e5b;
+    }
+    .content span{
+        font-size : 14px;
+    }
+    .one{
+        background-color: #002e5b;
+        color:#f0f5ff;
+    }
 }

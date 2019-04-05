@@ -6,7 +6,7 @@
 -->
 <ion-header color="primary">
   <ion-navbar color="primary" hideBackButton>
-    <ion-title>Orin Ijo 123</ion-title>
+    <ion-title>Orin Ijo {{hymn.number}}</ion-title>
     <ion-buttons start left>
       <button ion-button icon-only (click)="back()">
         <i class="fas fa-chevron-left" style="font-size:25px; padding:9px; "></i>
@@ -16,47 +16,26 @@
   <div id="header-details">
     <div id="image-ctn"> <img style="width:50px;" src="assets/imgs/ecwalogo.png" alt="Hymn Collections" /></div>
     <div>
-      <h1 class="hymn-title">E fi iyin fun Oluwa</h1>
+      <h1 class="hymn-title">{{hymn.title}}</h1>
 
       <div id="extra-ctn">
-        <h3 class="extra">l-lalleluya, ss sssHalleluya,Olurapada Oba! </h3>
+        <h3 class="extra">{{hymn.extra}}</h3>
       </div>
     </div>
 
   </div>
 </ion-header>
 <ion-content padding>
-
-  <div class="verse-ctn">
-    <div class="title">Verse 1 </div>
-    <div class="body">
-      <span>When we walk with the Lord<br /></span>
-      <span>In the light of His Word,<br /></span>
-      <span>What a glory He sheds on our way;<br /></span>
-      <span>While we do His good will,<br /></span>
-      <span>He abides with us still,<br /></span>
-      <span>And with all who will trust and obey.<br /></span>
+<div *ngFor = "let verse of verses; let i = index" [attr.data-index]="i">
+  <div class="verse-ctn" >
+    <div class="title">Verse {{verse.number}} </div>
+    <div class="body" [innerHTML] = "verse.content">
     </div>
   </div>
-  <div class="chorus-ctn">
+  <div class="chorus-ctn" id="chorus-ctn" *ngIf = "hymn.chorus != null && i == 0">
     <div class="title">Chorus</div>
-    <div class="body">
-      Trust and obey,
-      For there’s no other way
-      To be happy in Jesus,
-      But to trust and obey.
+    <div class="body"  [innerHTML] = "hymn.chorus">
     </div>
   </div>
-
-  <div class="verse-ctn">
-    <div class="title">Verse 2 </div>
-    <div class="body">
-      <span>Not a shadow can rise,<br /></span>
-      <span> Not a cloud in the skies,<br /></span>
-      <span> But His smile quickly drives it away;<br /></span>
-      <span> Not a doubt or a fear,<br /></span>
-      <span> Not a sigh or a tear,<br /></span>
-      <span> Can abide while we trust and obey.<br /></span>
-    </div>
   </div>
 </ion-content>

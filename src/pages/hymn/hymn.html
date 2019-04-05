@@ -1,88 +1,32 @@
 <ion-header>
   <ion-navbar color="primary">
-      <ion-searchbar placeholder="Search Hymns, Collection"></ion-searchbar>
+    <ion-searchbar placeholder="Search Hymns, Collection"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list id="collections-list5">
+
+    <ion-list id="collections-list5" >
       <ion-list-header class="hymn-header">
-          A
-        </ion-list-header>
-        <ion-item class="hymn-list" no-padding (click) = "openHymnDetail()">
-            <ion-avatar item-start>
-                <div class="icon" item-left>
-                    <div style="height:19px;"></div>
-                     <span class="hymn-number">101</span></div>
-              </ion-avatar>
-          <div color="dark" class="hymn">
-            <p class="hymn-title">Trust and Obey</p>
-            <span class="hymn-reference">SS&S 101</span>
-          </div>
-          <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-        </ion-item>
-    <ion-item class="hymn-list" no-padding>
-        <ion-avatar item-start color = primary>
-            <div class="icon" item-left color="danger">
-                <div style="height:15px;"></div>
-                 <span class="hymn-number" color=primary>101</span></div>
-          </ion-avatar>
-      <div color="dark" class="hymn">
-        <p>Trust and Obey</p>
-        <span class="hymn-reference">SS&S 101</span>
-      </div>
-      <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-    </ion-item>
-    <ion-item class="hymn-list" no-padding>
-        <ion-avatar item-start color = primary>
-            <div class="icon" item-left color="danger">
-                <div style="height:15px;"></div>
-                 <span class="hymn-number" color=primary>101</span></div>
-          </ion-avatar>
-      <div color="dark" class="hymn">
-        <p>Trust and Obey</p>
-        <span class="hymn-reference">SS&S 101</span>
-      </div>
-      <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-    </ion-item>
-    <ion-list-header class = "hymn-header">
-        B
+            Hymns
+        <span></span>
       </ion-list-header>
-      <ion-item class="hymn-list" no-padding>
-          <ion-avatar item-start>
-              <div class="icon" item-left>
-                  <div style="height:15px;"></div>
-                   <span class="hymn-number">101</span></div>
-            </ion-avatar>
+      <ion-item class="hymn-list" no-padding (click)="openHymnDetail(hymn)" *ngFor="let hymn of hymns; let i = index" [attr.data-index]="i">
+        <ion-avatar item-start>
+          <div class="icon" item-left>
+            <div style="height:19px;"></div>
+            <span class="hymn-number">{{hymn.number}}</span>
+          </div>
+        </ion-avatar>
         <div color="dark" class="hymn">
-          <p class="hymn-title">Trust and Obey</p>
-          <span class="hymn-reference">SS&S 101</span>
+          <p class="hymn-title">{{editTitle(hymn.title)}}</p>
+          <span class="hymn-reference">{{hymn.extra}}</span>
         </div>
-        <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
+        <i class="fas fa-chevron-right" item-right></i>
       </ion-item>
-  <ion-item class="hymn-list" no-padding>
-      <ion-avatar item-start color = primary>
-          <div class="icon" item-left color="danger">
-              <div style="height:15px;"></div>
-               <span class="hymn-number" color=primary>101</span></div>
-        </ion-avatar>
-    <div color="dark" class="hymn">
-      <p>Trust and Obey</p>
-      <span class="hymn-reference">SS&S 101</span>
-    </div>
-    <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-  </ion-item>
-  <ion-item class="hymn-list" no-padding>
-      <ion-avatar item-start color = primary>
-          <div class="icon" item-left color="danger">
-              <div style="height:15px;"></div>
-               <span class="hymn-number" color=primary>101</span></div>
-        </ion-avatar>
-    <div color="dark" class="hymn">
-      <p>Trust and Obey</p>
-      <span class="hymn-reference">SS&S 101</span>
-    </div>
-    <ion-icon name="ios-arrow-forward" color="dark" item-right class="ion-icon-push"></ion-icon>
-  </ion-item>
-  </ion-list>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="loadNext($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+ 
 </ion-content>
