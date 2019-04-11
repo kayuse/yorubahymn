@@ -23,6 +23,7 @@ import { File } from '@ionic-native/file';
 
 //providers
 import {HymnProvider} from '../providers/hymn/hymn';
+import { SearchPage } from '../pages/search/search';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {HymnProvider} from '../providers/hymn/hymn';
     IntroPage,
     TabsPage,
     CollectionHymnPage,
+    SearchPage,
     HymnDetailPage
   ],
   imports: [
@@ -53,6 +55,7 @@ import {HymnProvider} from '../providers/hymn/hymn';
     IntroPage,
     TabsPage,
     CollectionHymnPage,
+    SearchPage,
     HymnDetailPage
   ],
   providers: [

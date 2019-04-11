@@ -67,8 +67,8 @@ export class HymnProvider {
         return new Promise<any>((resolve, reject) => {
             this.getDB().then((db: SQLiteObject) => {
                 let offset = page * this.hymnPageSize;
-               
-                db.executeSql('SELECT * from hymns ORDER by number LIMIT ?,?', [offset,this.hymnPageSize]).then(data => {
+
+                db.executeSql('SELECT * from hymns ORDER by number LIMIT ?,?', [offset, this.hymnPageSize]).then(data => {
                     resolve(data);
                 }).catch(error => {
                     reject(error);
@@ -82,7 +82,7 @@ export class HymnProvider {
                 db.executeSql('SELECT COUNT(*) as c from hymns', [])
                     .then(data => {
                         resolve(data);
-                    }).catch(error =>{
+                    }).catch(error => {
                         reject(error);
                     })
             })
@@ -105,6 +105,24 @@ export class HymnProvider {
                     }).catch(error => {
                         reject(error);
                     })
+            })
+        })
+    }
+    search(text): Promise<any> {
+        return new Promise<any>((resolve, reject) => {
+            this.getDB().then((db: SQLiteObject) => {
+                let query = "SELECT DISTINCT hymns.* from hymns JOIN verses ON " +
+                    "hymns.id = verses.hymn_id WHERE hymns.number LIKE ? OR " +
+                    "hymns.title LIKE ? OR hymns.chorus LIKE ? OR extra LIKE ? OR " +
+                    "verses.content LIKE ? ORDER BY hymns.number ASC LIMIT 100";
+                let likeText = "%" + text + "%"
+                let params = [likeText, likeText, likeText, likeText, likeText];
+                db.executeSql(query, params).then(data => {
+                    resolve(data)
+                }).catch(error => {
+                    reject(error)
+                })
+                //db.executeSql()
             })
         })
     }
