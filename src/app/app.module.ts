@@ -6,7 +6,7 @@ import {IonicStorageModule} from '@ionic/storage';
 import { MyApp } from './app.component';
 
 import { HymnPage } from '../pages/hymn/hymn';
-import { ContactPage } from '../pages/contact/contact';
+import { CollectionsPage } from '../pages/collections/collections';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { IntroPage } from '../pages/intro/intro';
@@ -18,7 +18,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 //components
 import { HttpClientModule } from '@angular/common/http';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite/';
+import {Http, HttpModule} from '@angular/http';
+import { SQLite} from '@ionic-native/sqlite/';
 import { File } from '@ionic-native/file';
 
 //providers
@@ -30,7 +31,7 @@ import { SearchPage } from '../pages/search/search';
   declarations: [
     MyApp,
     HymnPage, 
-    ContactPage,
+    CollectionsPage,
     HomePage,
     IntroPage,
     TabsPage,
@@ -41,6 +42,7 @@ import { SearchPage } from '../pages/search/search';
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(MyApp,{
       tabsHideOnSubPages: true,
     }),
@@ -50,11 +52,12 @@ import { SearchPage } from '../pages/search/search';
   entryComponents: [
     MyApp,
     HymnPage,
-    ContactPage,
+    CollectionsPage,
     HomePage,
     IntroPage,
     TabsPage,
     CollectionHymnPage,
+    
     SearchPage,
     HymnDetailPage
   ],

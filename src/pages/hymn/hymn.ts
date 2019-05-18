@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HymnDetailPage } from '../hymn-detail/hymn-detail';
 import { HymnProvider } from '../../providers/hymn/hymn';
+import { SearchPage } from '../search/search'
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -13,6 +14,7 @@ export class HymnPage {
   public page: number = 0;
   public availableHeaders = {};
   public headerShiftIndex: Array<number> = [];
+  public searchText: String = "";
   public currentHeader: string = "";
   constructor(public navCtrl: NavController,
     public hymnService: HymnProvider, public storage: Storage) {
@@ -27,7 +29,7 @@ export class HymnPage {
       let rows = result.rows;
       //this.headerShiftIndex = [];
       for (let i = 0; i < rows.length; i++) {
-        let row = rows.item(i);
+        rows.item(i);
         this.hymns.push(rows.item(i));
 
       }
@@ -67,5 +69,16 @@ export class HymnPage {
       hymn: hymn
     });
   }
-
+  openSearchPage(event) {
+    
+    if (this.searchText.length > 3 && event.type == "input") {
+      this.navCtrl.push(SearchPage, {
+        'text': this.searchText
+      })
+    }else if(event.type == "keyup"){
+      this.navCtrl.push(SearchPage, {
+        'text': this.searchText
+      })
+    }
+  }
 }

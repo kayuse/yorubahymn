@@ -19,7 +19,7 @@
 <ion-content>
     <ion-grid>
         <ion-row>
-          <ion-col col-12><ion-searchbar (input) = "search()" [(ngModel)] = "searchText" placeholder="Search Hymns, Collection"></ion-searchbar></ion-col>
+          <ion-col col-12><ion-searchbar (input) = "search()" [(ngModel)] = "searchText" placeholder="Search Hymns, Collection" [(ngModel)] = "searchText"  (keyup.enter) = "openSearchPage($event)"></ion-searchbar></ion-col>
         </ion-row>
       </ion-grid>
       <ion-list id="collections-list5" >

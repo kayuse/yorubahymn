@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { File } from '@ionic-native/file';
-import { resolveDefinition } from '@angular/core/src/view/util';
+import { Http } from '@angular/http';
 
 @Injectable()
 export class HymnProvider {
@@ -12,7 +12,8 @@ export class HymnProvider {
     public hymnPageSize = 30;
     constructor(
         protected httpClient: HttpClient,
-        protected sqlite: SQLite, private file: File) {
+        protected sqlite: SQLite, private file: File,
+        protected http: Http) {
 
     }
 
@@ -27,8 +28,15 @@ export class HymnProvider {
 
             let dbResult = this.createDB();
             dbResult.then(data => {
-                let akopoRequest = this.file.readAsText(this.file.applicationDirectory + "www/assets/db", "akopo.json").then(response => {
-                    let data = JSON.parse(response);
+                let akopoRequest = this.http.get("./assets/db/akopo.json").subscribe(response => {
+                    if(!response.ok){
+                        let result = {
+                            status : -1,
+                            message : 'There was an error in initiating this app. Kindly contact admin'
+                        }
+                        reject(result);
+                    }
+                    let data = response.json();
                     return this.createData(data);
                 })
             })
@@ -69,6 +77,19 @@ export class HymnProvider {
                 let offset = page * this.hymnPageSize;
 
                 db.executeSql('SELECT * from hymns ORDER by number LIMIT ?,?', [offset, this.hymnPageSize]).then(data => {
+                    resolve(data);
+                }).catch(error => {
+                    reject(error);
+                })
+            })
+        })
+    }
+    getCollectionHymns(collection) {
+        return new Promise<any>((resolve, reject) => {
+            this.getDB().then((db: SQLiteObject) => {
+                let statement = "SELECT * from hymns where number >= ? and number <= ?";
+                console.log('from is from ' + collection.from)
+                db.executeSql(statement, [collection.from, collection.to]).then(data => {
                     resolve(data);
                 }).catch(error => {
                     reject(error);
@@ -156,8 +177,8 @@ export class HymnProvider {
                     "title text  NOT NULL," +
                     "number int(11) NOT NULL," +
                     "extra TEXT NOT NULL," +
+                    "views int(11) DEFAULT 0 NOT NULL," +
                     "chorus TEXT)", []).then(data => {
-                        console.log('success in hymns')
                         let response = {
                             db: db,
                             data: data
@@ -217,29 +238,20 @@ export class HymnProvider {
                 });
 
             });
-        })/*.then(response => {
-            return new Promise<{ db: SQLiteObject, data: {} }>((resolve, reject) => {
-                let db = response.db;
-                let responseResult = {
-                    db: db,
-                    data: 'Hymns'
-                }
-                resolve(response);
-
-            })
-        })*/
-
+        })
 
     }
     createHymnData() {
         return new Promise<any>((resolve, reject) => {
-            let hymnPromise = this.file.readAsText(this.file.applicationDirectory + "www/assets/db", "hymns.json");
-            hymnPromise.then(response => {
-                let hymnData = JSON.parse(response);
-                console.log(hymnData);
-                //let hym
-                let rowArgs = [];
-                let params = [];
+            let hymnPromise = this.http.get("./assets/db/hymns.json");
+            hymnPromise.subscribe(response => {
+                if (!response.ok) {
+                    let error = {
+                        'message': 'There was an issue in fetching the file'
+                    }
+                    reject(error)
+                }
+                let hymnData = response.json();
                 let processedHymns = 0;
                 let versesProcessed = 0;
                 this.getDB().then((db: SQLiteObject) => {
@@ -252,13 +264,19 @@ export class HymnProvider {
                             hymnData[i]['chorus']
                         ];
                         db.executeSql(statement, dataParams).then(data => {
-                            console.log('succesfully populated the hymn table' + i);
-                            //console.log(data);
                             processedHymns++;
                             this.createVerseData(db, hymnData[i]['verses'], data).then(response => {
-                                // console.log('Response for verses done');
                                 versesProcessed++;
-
+                                if(versesProcessed >= hymnData.length){
+                                    let response = {
+                                        db: db,
+                                        data: hymnData
+                                    }
+                                    resolve(response)
+                                }else{
+                                    console.log('Not done yet');
+                                    console.log('hymn data' + hymnData.length +  ' verses data ' + versesProcessed)
+                                }
                             });
                         }).catch(error => {
                             console.error('error', error);
@@ -266,13 +284,7 @@ export class HymnProvider {
                             reject(error);
                         });
                     }
-                    let response = {
-                        db: db,
-                        data: hymnData
-                    }
-
-
-                    resolve(response)
+                  
 
                 })
             })
@@ -288,7 +300,7 @@ export class HymnProvider {
                 rowArgs.push('(?,?,?)');
                 params.push(verses[i]['number']);
                 params.push(data.insertId);
-                params.push(verses[i]['content']);
+                params.push(verses[i]['strippedContent']);
             }
             console.log(statement);
             statement += rowArgs.join(", ");

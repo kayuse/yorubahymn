@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-searchbar placeholder="Search Hymns, Collection"></ion-searchbar>
+    <ion-searchbar placeholder="Search Hymns, Collection" [(ngModel)] = "searchText"  (keyup.enter) = "openSearchPage($event)"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 

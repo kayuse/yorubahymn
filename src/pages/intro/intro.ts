@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Tabs } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Slides } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
-import { HttpClient } from '@angular/common/http';
 import { HymnProvider } from '../../providers/hymn/hymn';
 
 

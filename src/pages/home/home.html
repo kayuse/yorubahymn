@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary" header-margin=false>
-    <ion-searchbar placeholder="Search Hymns, Collection"  [(ngModel)] = "searchText" (input) = "openSearchPage($event)" (keyup.enter) = "openSearchPage($event)"></ion-searchbar>
+    <ion-searchbar placeholder="Search Hymns, Collection"  [(ngModel)] = "searchText"  (keyup.enter) = "openSearchPage($event)"></ion-searchbar>
   </ion-navbar>
 </ion-header>
 <ion-content id="page2" style="margin-top:0px;">
@@ -24,20 +24,20 @@
           <div style="height:19px;"></div>
           <i class="fab fa-first-order-alt top-collections-icon"></i></div>
     </ion-avatar>
-  -->
+  
     <div id="hymn-badge-ctn">
       <ion-badge color="primary" class="hymn-badge">Trust and Obey</ion-badge>
       <ion-badge color="secondary" class="hymn-badge">Jesus is coming again</ion-badge>
       <ion-badge color="tertiary" class="hymn-badge">A living witness</ion-badge>
       <ion-badge color="success" class="hymn-badge">Without God we are nothing</ion-badge>
-    </div>
+    </div>-->
   </div>
   <ion-list id="collections-list5">
     <ion-list-header style="font-size: 1.2em">
       HYMN COLLECTIONS 
     </ion-list-header>
 
-    <ion-item id="collections-list-item18" no-lines *ngFor = "let akopo of akopos; let i = index" [attr.data-index]="i">
+    <ion-item id="collections-list-item18"  no-lines *ngFor = "let akopo of akopos; let i = index" [attr.data-index]="i"  (click)= "openCollection(i)">
       <ion-avatar item-start>
          <span class="collection-number"></span> 
          <img src="{{getImageUrl(i)}}" >
@@ -46,7 +46,7 @@
         <p class="collection-title" >{{akopo.title}}</p>
         <p color="primary" class="collection-range">{{akopo.range}}</p>
       </span>
-      <i class="fas fa-chevron-right" item-right></i>
+      <i class="fas fa-chevron-right" item-right ></i>
     </ion-item>
       <hr/>
   </ion-list>

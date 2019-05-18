@@ -51,6 +51,18 @@ export class SearchPage {
       console.error('error data', error)
     })
   }
+  openSearchPage(event) {
+    
+    if (this.searchText.length > 3 && event.type == "input") {
+      this.navCtrl.push(SearchPage, {
+        'text': this.searchText
+      })
+    }else if(event.type == "keyup"){
+      this.navCtrl.push(SearchPage, {
+        'text': this.searchText
+      })
+    }
+  }
   back() {
     this.navCtrl.pop();
   }

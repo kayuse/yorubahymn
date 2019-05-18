@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { HymnPage } from '../hymn/hymn';
-import { ContactPage } from '../contact/contact';
 import {CollectionHymnPage} from '../collection-hymn/collection-hymn';
 import { HomePage } from '../home/home';
 

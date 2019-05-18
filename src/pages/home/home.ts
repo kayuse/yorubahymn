@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { Content } from 'ionic-angular';
 import { HymnProvider } from '../../providers/hymn/hymn';
 import { SearchPage } from '../search/search'
-import { text } from '@angular/core/src/render3/instructions';
+import { CollectionsPage } from '../collections/collections';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -15,7 +15,7 @@ export class HomePage {
   public searchText: String = "";
   @ViewChild(Content) content: Content;
   constructor(public navCtrl: NavController, public hymnService: HymnProvider) {
-    this.listAkopo();
+   
   }
 
   public hideNavbar(): void {
@@ -23,6 +23,9 @@ export class HomePage {
 
     // You should resize the content to use the space left by the navbar
     this.content.resize();
+  }
+  ionViewWillEnter() {
+    this.listAkopo();
   }
 
   listAkopo() {
@@ -37,9 +40,18 @@ export class HomePage {
     });
   }
   getImageUrl(i) {
-    let imageId = (i % 5) + 1;
+    let imageId = (i % 10) + 1;
     //console.log(imageId);
-    return "assets/imgs/" + imageId + ".jpg";
+    return "assets/imgs/" + imageId + ".jpeg";
+  }
+  openCollection(index){
+    let collection = this.akopos[index];
+    this.navCtrl.push(
+      CollectionsPage , {
+        'item' : collection,
+        'image' : this.getImageUrl(index)
+      }
+    )
   }
   openSearchPage(event) {
     

@@ -1,0 +1,65 @@
+page-collections {
+    .home-slider{
+        color:#f4f4f4;
+        overflow: hidden;
+      }
+      ion-header{
+        color:#f4f4f4 !important;
+        height:230px; 
+        margin-top:0px;
+      }
+      #list_header{
+          font-size: 24px;
+          margin-left: 4%;
+      }
+      .header{
+        text-align: center;
+      }
+      #main-header{
+          font-size: 31px;
+      }
+      #range-header{
+        letter-spacing: 2px;
+        font-size: 22px;
+      }
+      .hymn p{
+        color: #222;
+        font-weight: normal;
+        font-size: 17px;
+    }
+    .ion-icon-push{
+        font-size:1.5em;
+        padding-right:15px;
+    }
+    div.icon{
+        border-radius : 50px; 
+        width:50px;
+        height: 50px;
+        background-color: #3a7bd5;
+       // border: 1px solid 	#D3D3D3;
+        text-align: center;
+        font-size: 0.9em;
+        font-weight: 500;
+        color:#f4f4f4 !important;
+      }
+      .hymn{
+         vertical-align: middle;
+      }
+      .hymn-number{
+         
+      }
+      .hymn-reference{
+        padding:4px;
+        font-size: 0.7em;
+        color:#666;
+      }
+      .hymn-list{
+          margin-left:9px;
+      }
+      .hymn-header{
+        border-top:none; 
+        font-size: 1.5em; 
+        background:#f4f4f4; 
+        color:#222;
+      }
+}
